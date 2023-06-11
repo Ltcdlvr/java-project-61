@@ -2,6 +2,10 @@ plugins {
     id 'application'
 }
 
+plugins {
+    id 'checkstyle'
+}
+
 application {
     mainClass = 'hexlet.code.App'
 }
@@ -29,3 +33,4 @@ run {
 compileJava {
     options.release = 17
 }
+
