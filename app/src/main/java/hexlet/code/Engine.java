@@ -2,16 +2,12 @@ package hexlet.code;
 
 import hexlet.code.games.Calculator;
 import hexlet.code.games.EvenGame;
-
-import java.util.Random;
+import hexlet.code.games.GCD;
 
 
 public class Engine {
-
     private static String userName;
-
     private static final InputSource SOURCE = InputSource.getInstance();
-
     private static final Integer GAME_ROUNDS = 3;
 
     private static void askQuestion(String gameQuestion) {
@@ -72,6 +68,31 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(Calculator.getQuestion());
             String rightAnswer = Calculator.getAnswer();
+            String userAnswer = SOURCE.getStringAnswer();
+
+            if (userAnswer.equals(rightAnswer)) {
+                counter += 1;
+                giveSuccessFeedback();
+            } else {
+                giveNegativeFeedback(rightAnswer, userAnswer);
+                break;
+            }
+        }
+
+        if (counter >= 3) {
+            giveCongratulations();
+        }
+    }
+
+    public static void gcdGame() {
+        getName();
+        System.out.println("Find the greatest common divisor of given numbers.");
+
+        int counter = 0;
+
+        while (counter < GAME_ROUNDS) {
+            askQuestion(GCD.getQuestion());
+            String rightAnswer = GCD.getAnswer();
             String userAnswer = SOURCE.getStringAnswer();
 
             if (userAnswer.equals(rightAnswer)) {

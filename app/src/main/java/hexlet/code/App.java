@@ -10,6 +10,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int gameNumber = source.getIntAnswer();
@@ -27,6 +28,10 @@ public class App {
             }
             case 3 -> {
                 Engine.calcGame();
+                break;
+            }
+            case 4 -> {
+                Engine.gcdGame();
                 break;
             }
         }
