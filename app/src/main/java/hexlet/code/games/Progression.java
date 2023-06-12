@@ -1,14 +1,11 @@
 package hexlet.code.games;
 
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import org.apache.commons.lang3.StringUtils;
 import java.util.StringJoiner;
 
 public class Progression {
 
-    private static String curRes = "?";
+    private static String answer = "?";
     private static String question = "?";
     private static final int BOUND = 100;
     private static final int MIN_LENGTH = 5;
@@ -25,7 +22,7 @@ public class Progression {
         for (int curIndex = 0; curIndex < length; curIndex++) {
             String curValue = String.valueOf(base + step * curIndex);
             if (curIndex == secretIndex) {
-                curRes = curValue;
+                answer = curValue;
                 result.add("..");
             } else {
                 result.add(curValue);
@@ -41,7 +38,7 @@ public class Progression {
     }
 
     public static String getAnswer() {
-        return curRes;
+        return answer;
     }
 }
 

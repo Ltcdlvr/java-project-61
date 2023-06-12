@@ -12,6 +12,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int gameNumber = source.getIntAnswer();
@@ -24,19 +25,23 @@ public class App {
                 break;
             }
             case 2 -> {
-                Engine.evenGame();
+                Engine.runEvenGame();
                 break;
             }
             case 3 -> {
-                Engine.calcGame();
+                Engine.runCalcGame();
                 break;
             }
             case 4 -> {
-                Engine.gcdGame();
+                Engine.runGcdGame();
                 break;
             }
             case 5 -> {
-                Engine.progressionGame();
+                Engine.runProgressionGame();
+                break;
+            }
+            case 6 -> {
+                Engine.runPrimeGame();
                 break;
             }
         }

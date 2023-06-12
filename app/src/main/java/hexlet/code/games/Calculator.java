@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Calculator {
 
-    private static String curRes = "?";
+    private static String answer = "?";
     private static int a = 0;
     private static int b = 0;
     private static char operation = '?';
@@ -22,17 +22,17 @@ public class Calculator {
         switch (symbolNumber) {
             case 0 -> {
                 operation = OPERATIONS.get(0);
-                curRes = String.valueOf(a + b);
+                answer = String.valueOf(a + b);
                 break;
             }
             case 1 -> {
                 operation = OPERATIONS.get(1);
-                curRes = String.valueOf(a - b);
+                answer = String.valueOf(a - b);
                 break;
             }
             default -> {
                 operation = OPERATIONS.get(2);
-                curRes = String.valueOf(a * b);
+                answer = String.valueOf(a * b);
                 break;
             }
         }
@@ -44,7 +44,7 @@ public class Calculator {
     }
 
     public static String getAnswer() {
-        return curRes;
+        return answer;
     }
 
 }

@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 public class GCD {
-    private static String curRes = "?";
+    private static String answer = "?";
     private static int a = 0;
     private static int b = 0;
     private static final int BOUND = 100;
@@ -19,7 +18,7 @@ public class GCD {
 
         a = core * PRIME_NUMBERS.get(firstIndex);
         b = core * PRIME_NUMBERS.get(secondIndex);
-        curRes = String.valueOf(core);
+        answer = String.valueOf(core);
     }
 
     public static String getQuestion() {
@@ -28,6 +27,6 @@ public class GCD {
     }
 
     public static String getAnswer() {
-        return curRes;
+        return answer;
     }
 }

@@ -1,9 +1,6 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.EvenGame;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
+import hexlet.code.games.*;
 
 
 public class Engine {
@@ -35,15 +32,15 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static void evenGame() {
+    public static void runEvenGame() {
         getName();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
 
         int counter = 0;
 
         while (counter < GAME_ROUNDS) {
-            askQuestion(EvenGame.getQuestion());
-            String rightAnswer = EvenGame.getAnswer();
+            askQuestion(EvenNumber.getQuestion());
+            String rightAnswer = EvenNumber.getAnswer();
             String userAnswer = SOURCE.getStringAnswer();
 
             if (userAnswer.equals(rightAnswer)) {
@@ -60,7 +57,7 @@ public class Engine {
         }
     }
 
-    public static void calcGame() {
+    public static void runCalcGame() {
         getName();
         System.out.println("What is the result of the expression?");
 
@@ -85,7 +82,7 @@ public class Engine {
         }
     }
 
-    public static void gcdGame() {
+    public static void runGcdGame() {
         getName();
         System.out.println("Find the greatest common divisor of given numbers.");
 
@@ -110,7 +107,7 @@ public class Engine {
         }
     }
 
-    public static void progressionGame() {
+    public static void runProgressionGame() {
         getName();
         System.out.println("Find the greatest common divisor of given numbers.");
 
@@ -119,6 +116,31 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(Progression.getQuestion());
             String rightAnswer = Progression.getAnswer();
+            String userAnswer = SOURCE.getStringAnswer();
+
+            if (userAnswer.equals(rightAnswer)) {
+                counter += 1;
+                giveSuccessFeedback();
+            } else {
+                giveNegativeFeedback(rightAnswer, userAnswer);
+                break;
+            }
+        }
+
+        if (counter >= 3) {
+            giveCongratulations();
+        }
+    }
+
+    public static void runPrimeGame() {
+        getName();
+        System.out.println("Find the greatest common divisor of given numbers.");
+
+        int counter = 0;
+
+        while (counter < GAME_ROUNDS) {
+            askQuestion(PrimeNumber.getQuestion());
+            String rightAnswer = PrimeNumber.getAnswer();
             String userAnswer = SOURCE.getStringAnswer();
 
             if (userAnswer.equals(rightAnswer)) {

@@ -2,8 +2,8 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-public class EvenGame {
-    private static String curRes = "?";
+public class EvenNumber {
+    private static String answer = "?";
     private static int n = 0;
     private static final int BOUND = 1000;
     private static final Random RAND_GENERATOR = new Random();
@@ -12,9 +12,9 @@ public class EvenGame {
         n = RAND_GENERATOR.nextInt(BOUND);
 
         if (n % 2 == 0) {
-            curRes = "yes";
+            answer = "yes";
         } else {
-            curRes = "no";
+            answer = "no";
         }
     }
 
@@ -24,6 +24,6 @@ public class EvenGame {
     }
 
     public static String getAnswer() {
-        return curRes;
+        return answer;
     }
 }
