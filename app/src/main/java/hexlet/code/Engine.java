@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Calculator;
 import hexlet.code.games.EvenGame;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 
 public class Engine {
@@ -93,6 +94,31 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(GCD.getQuestion());
             String rightAnswer = GCD.getAnswer();
+            String userAnswer = SOURCE.getStringAnswer();
+
+            if (userAnswer.equals(rightAnswer)) {
+                counter += 1;
+                giveSuccessFeedback();
+            } else {
+                giveNegativeFeedback(rightAnswer, userAnswer);
+                break;
+            }
+        }
+
+        if (counter >= 3) {
+            giveCongratulations();
+        }
+    }
+
+    public static void progressionGame() {
+        getName();
+        System.out.println("Find the greatest common divisor of given numbers.");
+
+        int counter = 0;
+
+        while (counter < GAME_ROUNDS) {
+            askQuestion(Progression.getQuestion());
+            String rightAnswer = Progression.getAnswer();
             String userAnswer = SOURCE.getStringAnswer();
 
             if (userAnswer.equals(rightAnswer)) {
