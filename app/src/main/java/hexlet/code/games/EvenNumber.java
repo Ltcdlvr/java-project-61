@@ -3,6 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class EvenNumber {
+
     private static String answer = "?";
     private static int n = 0;
     private static final int BOUND = 1000;

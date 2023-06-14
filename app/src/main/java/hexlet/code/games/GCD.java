@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GCD {
+
     private static String answer = "?";
     private static int a = 0;
     private static int b = 0;

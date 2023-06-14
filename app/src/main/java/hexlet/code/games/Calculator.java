@@ -46,5 +46,4 @@ public class Calculator {
     public static String getAnswer() {
         return answer;
     }
-
 }

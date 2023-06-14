@@ -1,9 +1,10 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.lang.Math;
+
 
 public class PrimeNumber {
+
     private static String answer = "?";
     private static int n = 0;
     private static final int BOUND = 1000;

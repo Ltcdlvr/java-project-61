@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class InputSource {
+public final class InputSource {
 
     private static InputSource instance;
     private Scanner scanner;
@@ -16,6 +16,13 @@ public class InputSource {
             instance = new InputSource();
         }
         return instance;
+    }
+
+    public static synchronized void close() {
+        if (instance != null) {
+            instance.scanner.close();
+            instance = null;
+        }
     }
 
     public String getStringAnswer() {

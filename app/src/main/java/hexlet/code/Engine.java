@@ -1,9 +1,13 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
-
+import hexlet.code.games.Calculator;
+import hexlet.code.games.EvenNumber;
+import hexlet.code.games.GCD;
+import hexlet.code.games.PrimeNumber;
+import hexlet.code.games.Progression;
 
 public class Engine {
+
     private static String userName;
     private static final InputSource SOURCE = InputSource.getInstance();
     private static final Integer GAME_ROUNDS = 3;
