@@ -109,7 +109,7 @@ public class Engine {
 
     public static void runProgressionGame() {
         getName();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println("What number is missing in the progression?");
 
         int counter = 0;
 
@@ -134,7 +134,7 @@ public class Engine {
 
     public static void runPrimeGame() {
         getName();
-        System.out.println("Find the greatest common divisor of given numbers.");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
         int counter = 0;
 
