@@ -56,7 +56,7 @@ public class Engine {
             }
         }
 
-        if (counter >= 3) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
     }
@@ -81,7 +81,7 @@ public class Engine {
             }
         }
 
-        if (counter >= 3) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
     }
@@ -106,7 +106,7 @@ public class Engine {
             }
         }
 
-        if (counter >= 3) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
     }
@@ -131,7 +131,7 @@ public class Engine {
             }
         }
 
-        if (counter >= 3) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
     }
@@ -156,7 +156,7 @@ public class Engine {
             }
         }
 
-        if (counter >= 3) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
     }

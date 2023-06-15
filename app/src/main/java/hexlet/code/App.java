@@ -1,46 +1,60 @@
 package hexlet.code;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class App {
 
     public static void main(String[] args) {
         try {
             InputSource source = InputSource.getInstance();
-            int gameNumber;
+            Map<Integer, String> gameList = new HashMap<Integer, String>();
+            gameList.put(1, "Greet");
+            gameList.put(2, "Even");
+            gameList.put(3, "Calc");
+            gameList.put(4, "GCD");
+            gameList.put(5, "Progression");
+            gameList.put(6, "Prime");
+            gameList.put(0 ,"Exit");
 
             System.out.println("Please enter the game number and press Enter.");
-            System.out.println("1 - Greet");
-            System.out.println("2 - Even");
-            System.out.println("3 - Calc");
-            System.out.println("4 - GCD");
-            System.out.println("5 - Progression");
-            System.out.println("6 - Prime");
-            System.out.println("0 - Exit");
-            System.out.print("Your choice: ");
-            gameNumber = source.getIntAnswer();
-            System.out.println("Your choice " + gameNumber);
+            for (var game : gameList.entrySet()) {
+                System.out.println(game.getKey() + " - " + game.getValue());
+            }
 
-            switch (gameNumber) {
-                case 1 -> {
+            int gameNumber = source.getIntAnswer();
+            System.out.println("Your choice " + gameNumber);
+            if (gameNumber > gameList.size() || gameNumber < 0) {
+                System.out.println("Bad input.");
+            }
+
+            String curGame = gameList.get(gameNumber);
+            if (curGame == null) {
+                curGame = "empty";
+            }
+
+            switch (curGame) {
+                case "Greet" -> {
                     Engine.getName();
                     break;
                 }
-                case 2 -> {
+                case "Even" -> {
                     Engine.runEvenGame();
                     break;
                 }
-                case 3 -> {
+                case "Calc" -> {
                     Engine.runCalcGame();
                     break;
                 }
-                case 4 -> {
+                case "GCD" -> {
                     Engine.runGcdGame();
                     break;
                 }
-                case 5 -> {
+                case "Progression" -> {
                     Engine.runProgressionGame();
                     break;
                 }
-                case 6 -> {
+                case "Prime" -> {
                     Engine.runPrimeGame();
                     break;
                 }
@@ -48,6 +62,8 @@ public class App {
                     break;
                 }
             }
+        } catch (Exception e){
+            System.out.println("Bad input.");
         } finally {
             InputSource.close();
         }
