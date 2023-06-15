@@ -1,8 +1,6 @@
 package hexlet.code;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class App {
 
@@ -59,7 +57,7 @@ public class App {
                     break;
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Bad input.");
         } finally {
             InputSource.close();
