@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class App {
@@ -8,27 +9,23 @@ public class App {
     public static void main(String[] args) {
         try {
             InputSource source = InputSource.getInstance();
-            Map<Integer, String> gameList = new HashMap<Integer, String>();
-            gameList.put(1, "Greet");
-            gameList.put(2, "Even");
-            gameList.put(3, "Calc");
-            gameList.put(4, "GCD");
-            gameList.put(5, "Progression");
-            gameList.put(6, "Prime");
-            gameList.put(0 ,"Exit");
+            List<String> gameList = List.of("Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime");
 
             System.out.println("Please enter the game number and press Enter.");
-            for (var game : gameList.entrySet()) {
-                System.out.println(game.getKey() + " - " + game.getValue());
+            for (int index = 0; index < gameList.size(); index++) {
+                System.out.println(index + " - " + gameList.get(index));
             }
 
             int gameNumber = source.getIntAnswer();
+            String curGame = null;
+
             System.out.println("Your choice " + gameNumber);
             if (gameNumber > gameList.size() || gameNumber < 0) {
                 System.out.println("Bad input.");
+            } else {
+                curGame = gameList.get(gameNumber);
             }
 
-            String curGame = gameList.get(gameNumber);
             if (curGame == null) {
                 curGame = "empty";
             }
