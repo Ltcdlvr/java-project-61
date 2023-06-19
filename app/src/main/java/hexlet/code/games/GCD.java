@@ -1,6 +1,5 @@
 package hexlet.code.games;
 
-import java.util.List;
 import java.util.Random;
 
 public class GCD {
@@ -10,16 +9,27 @@ public class GCD {
     private static int b = 0;
     private static final int BOUND = 100;
     private static final Random RAND_GENERATOR = new Random();
-    private static final List<Integer> PRIME_NUMBERS = List.of(1, 2, 3, 5, 7, 11, 13, 17, 19, 23);
+
+    private static int getGCD(int x, int y) {
+        if (x == 0 || y == 0) {
+            return 1;
+        }
+        if (x < y) {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+        if (x % y == 0) {
+            return y;
+        } else {
+            return getGCD(y, x % y);
+        }
+    }
 
     private static void generateNewInput() {
-        int core = RAND_GENERATOR.nextInt(BOUND);
-        int firstIndex = RAND_GENERATOR.nextInt(PRIME_NUMBERS.size());
-        int secondIndex = (firstIndex + 1) % PRIME_NUMBERS.size();
-
-        a = core * PRIME_NUMBERS.get(firstIndex);
-        b = core * PRIME_NUMBERS.get(secondIndex);
-        answer = String.valueOf(core);
+        a = RAND_GENERATOR.nextInt(BOUND);
+        b = RAND_GENERATOR.nextInt(BOUND);
+        answer = String.valueOf(getGCD(a, b));
     }
 
     public static String getQuestion() {

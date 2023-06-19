@@ -2,7 +2,6 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-
 public class PrimeNumber {
 
     private static String answer = "?";
@@ -11,12 +10,14 @@ public class PrimeNumber {
     private static final Random RAND_GENERATOR = new Random();
 
     private static boolean isPrime(int number) {
-        int it = 2;
-        while (it < Math.sqrt(number)) {
-            if (number % it == 0) {
+        int absNumber = Math.abs(number);
+        if (absNumber < 2) {
+            return false;
+        }
+        for (int it = 2; it < Math.sqrt(absNumber); it++) {
+            if (absNumber % it == 0) {
                 return false;
             }
-            it++;
         }
         return true;
     }

@@ -1,12 +1,13 @@
 package hexlet.code;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class App {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         try {
-            InputSource source = InputSource.getInstance();
             List<String> gameList = List.of("Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime");
 
             System.out.println("Please enter the game number and press Enter.");
@@ -14,7 +15,7 @@ public class App {
                 System.out.println(index + " - " + gameList.get(index));
             }
 
-            int gameNumber = source.getIntAnswer();
+            int gameNumber = Integer.parseInt(scanner.next());
             String curGame = null;
 
             System.out.println("Your choice " + gameNumber);
@@ -60,7 +61,7 @@ public class App {
         } catch (Exception e) {
             System.out.println("Bad input.");
         } finally {
-            InputSource.close();
+            scanner.close();
         }
     }
 }

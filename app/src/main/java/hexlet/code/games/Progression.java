@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.StringJoiner;
 
 public class Progression {
 
@@ -17,19 +16,16 @@ public class Progression {
         int step = RAND_GENERATOR.nextInt(BOUND);
         int length = RAND_GENERATOR.nextInt(MAX_LENGTH - MIN_LENGTH) + MIN_LENGTH;
         int secretIndex = RAND_GENERATOR.nextInt(length);
-        StringJoiner result = new StringJoiner(" ");
+        String[] progression = new String[length];
+
 
         for (int curIndex = 0; curIndex < length; curIndex++) {
-            String curValue = String.valueOf(base + step * curIndex);
-            if (curIndex == secretIndex) {
-                answer = curValue;
-                result.add("..");
-            } else {
-                result.add(curValue);
-            }
+            progression[curIndex] = String.valueOf(base + step * curIndex);
         }
 
-        question = result.toString();
+        answer = progression[secretIndex];
+        progression[secretIndex] = "..";
+        question = String.join(" ", progression);
     }
 
     public static String getQuestion() {

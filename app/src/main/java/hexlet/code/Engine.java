@@ -6,10 +6,12 @@ import hexlet.code.games.GCD;
 import hexlet.code.games.PrimeNumber;
 import hexlet.code.games.Progression;
 
+import java.util.Scanner;
+
 public class Engine {
 
     private static String userName;
-    private static final InputSource SOURCE = InputSource.getInstance();
+    private static final Scanner SCANNER = new Scanner(System.in);
     private static final Integer GAME_ROUNDS = 3;
 
     private static void askQuestion(String gameQuestion) {
@@ -32,7 +34,7 @@ public class Engine {
     public static void getName() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
-        userName = SOURCE.getStringAnswer();
+        userName = SCANNER.next();
         System.out.println("Hello, " + userName + "!");
     }
 
@@ -45,7 +47,7 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(EvenNumber.getQuestion());
             String rightAnswer = EvenNumber.getAnswer();
-            String userAnswer = SOURCE.getStringAnswer();
+            String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
                 counter += 1;
@@ -70,7 +72,7 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(Calculator.getQuestion());
             String rightAnswer = Calculator.getAnswer();
-            String userAnswer = SOURCE.getStringAnswer();
+            String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
                 counter += 1;
@@ -95,7 +97,7 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(GCD.getQuestion());
             String rightAnswer = GCD.getAnswer();
-            String userAnswer = SOURCE.getStringAnswer();
+            String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
                 counter += 1;
@@ -120,7 +122,7 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(Progression.getQuestion());
             String rightAnswer = Progression.getAnswer();
-            String userAnswer = SOURCE.getStringAnswer();
+            String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
                 counter += 1;
@@ -145,7 +147,7 @@ public class Engine {
         while (counter < GAME_ROUNDS) {
             askQuestion(PrimeNumber.getQuestion());
             String rightAnswer = PrimeNumber.getAnswer();
-            String userAnswer = SOURCE.getStringAnswer();
+            String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
                 counter += 1;
