@@ -65,13 +65,15 @@ public class Engine {
 
     public static void runCalcGame() {
         getName();
-        System.out.println("What is the result of the expression?");
+        System.out.println(Calculator.getRules());
 
         int counter = 0;
+        var rounds = Calculator.getRounds(GAME_ROUNDS);
 
         while (counter < GAME_ROUNDS) {
-            askQuestion(Calculator.getQuestion());
-            String rightAnswer = Calculator.getAnswer();
+            var curRound = rounds.get(counter);
+            askQuestion(curRound.get(0));
+            String rightAnswer = curRound.get(1);
             String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {

@@ -1,20 +1,20 @@
 package hexlet.code.games;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Calculator {
 
-    private static String answer = "?";
-    private static int a = 0;
-    private static int b = 0;
-    private static char operation = '?';
     private static final int BOUND = 1000;
     private static final Character[] OPERATIONS = {'+', '-', '*'};
     private static final Random RAND_GENERATOR = new Random();
 
-    private static void generateNewInput() {
-        a = RAND_GENERATOR.nextInt(BOUND);
-        b = RAND_GENERATOR.nextInt(BOUND);
+    private static List<String> generateRound() {
+        String answer = "?";
+        char operation = '?';
+        int a = RAND_GENERATOR.nextInt(BOUND);
+        int b = RAND_GENERATOR.nextInt(BOUND);
 
         int symbolNumber = RAND_GENERATOR.nextInt(OPERATIONS.length);
         switch (symbolNumber) {
@@ -34,14 +34,18 @@ public class Calculator {
                 break;
             }
         }
+        return List.of(a + " " + operation + " " + b, answer);
     }
 
-    public static String getQuestion() {
-        generateNewInput();
-        return a + " " + operation + " " + b;
+    public static String getRules() {
+        return "What is the result of the expression?";
     }
 
-    public static String getAnswer() {
-        return answer;
+    public static ArrayList<List<String>> getRounds(int roundsAmount) {
+        var rounds = new ArrayList<List<String>>();
+        for (int i = 0; i < roundsAmount; i++) {
+            rounds.add(generateRound());
+        }
+        return rounds;
     }
 }
