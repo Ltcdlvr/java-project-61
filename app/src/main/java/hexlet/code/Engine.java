@@ -1,18 +1,13 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.EvenNumber;
-import hexlet.code.games.GCD;
-import hexlet.code.games.PrimeNumber;
-import hexlet.code.games.Progression;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
 
     private static String userName;
     private static final Scanner SCANNER = new Scanner(System.in);
-    private static final Integer GAME_ROUNDS = 3;
 
     private static void askQuestion(String gameQuestion) {
         System.out.println("Question: " + gameQuestion);
@@ -38,39 +33,12 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static void runEvenGame() {
+    public static void runGame(String rules, ArrayList<List<String>> rounds) {
         getName();
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
+        System.out.println(rules);
         int counter = 0;
 
-        while (counter < GAME_ROUNDS) {
-            askQuestion(EvenNumber.getQuestion());
-            String rightAnswer = EvenNumber.getAnswer();
-            String userAnswer = SCANNER.next();
-
-            if (userAnswer.equals(rightAnswer)) {
-                counter += 1;
-                giveSuccessFeedback();
-            } else {
-                giveNegativeFeedback(rightAnswer, userAnswer);
-                break;
-            }
-        }
-
-        if (counter >= GAME_ROUNDS) {
-            giveCongratulations();
-        }
-    }
-
-    public static void runCalcGame() {
-        getName();
-        System.out.println(Calculator.getRules());
-
-        int counter = 0;
-        var rounds = Calculator.getRounds(GAME_ROUNDS);
-
-        while (counter < GAME_ROUNDS) {
+        while (counter < rounds.size()) {
             var curRound = rounds.get(counter);
             askQuestion(curRound.get(0));
             String rightAnswer = curRound.get(1);
@@ -85,83 +53,10 @@ public class Engine {
             }
         }
 
-        if (counter >= GAME_ROUNDS) {
+        if (counter >= rounds.size()) {
             giveCongratulations();
         }
-    }
 
-    public static void runGcdGame() {
-        getName();
-        System.out.println("Find the greatest common divisor of given numbers.");
-
-        int counter = 0;
-
-        while (counter < GAME_ROUNDS) {
-            askQuestion(GCD.getQuestion());
-            String rightAnswer = GCD.getAnswer();
-            String userAnswer = SCANNER.next();
-
-            if (userAnswer.equals(rightAnswer)) {
-                counter += 1;
-                giveSuccessFeedback();
-            } else {
-                giveNegativeFeedback(rightAnswer, userAnswer);
-                break;
-            }
-        }
-
-        if (counter >= GAME_ROUNDS) {
-            giveCongratulations();
-        }
-    }
-
-    public static void runProgressionGame() {
-        getName();
-        System.out.println("What number is missing in the progression?");
-
-        int counter = 0;
-
-        while (counter < GAME_ROUNDS) {
-            askQuestion(Progression.getQuestion());
-            String rightAnswer = Progression.getAnswer();
-            String userAnswer = SCANNER.next();
-
-            if (userAnswer.equals(rightAnswer)) {
-                counter += 1;
-                giveSuccessFeedback();
-            } else {
-                giveNegativeFeedback(rightAnswer, userAnswer);
-                break;
-            }
-        }
-
-        if (counter >= GAME_ROUNDS) {
-            giveCongratulations();
-        }
-    }
-
-    public static void runPrimeGame() {
-        getName();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-
-        int counter = 0;
-
-        while (counter < GAME_ROUNDS) {
-            askQuestion(PrimeNumber.getQuestion());
-            String rightAnswer = PrimeNumber.getAnswer();
-            String userAnswer = SCANNER.next();
-
-            if (userAnswer.equals(rightAnswer)) {
-                counter += 1;
-                giveSuccessFeedback();
-            } else {
-                giveNegativeFeedback(rightAnswer, userAnswer);
-                break;
-            }
-        }
-
-        if (counter >= GAME_ROUNDS) {
-            giveCongratulations();
-        }
+        SCANNER.close();
     }
 }

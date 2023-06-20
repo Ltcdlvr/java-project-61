@@ -9,6 +9,7 @@ public class Calculator {
     private static final int BOUND = 1000;
     private static final Character[] OPERATIONS = {'+', '-', '*'};
     private static final Random RAND_GENERATOR = new Random();
+    private static final Integer GAME_ROUNDS = 3;
 
     private static List<String> generateRound() {
         String answer = "?";
@@ -41,9 +42,9 @@ public class Calculator {
         return "What is the result of the expression?";
     }
 
-    public static ArrayList<List<String>> getRounds(int roundsAmount) {
+    public static ArrayList<List<String>> getRounds() {
         var rounds = new ArrayList<List<String>>();
-        for (int i = 0; i < roundsAmount; i++) {
+        for (int i = 0; i < GAME_ROUNDS; i++) {
             rounds.add(generateRound());
         }
         return rounds;

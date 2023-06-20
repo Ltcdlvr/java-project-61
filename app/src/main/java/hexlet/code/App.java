@@ -3,6 +3,12 @@ package hexlet.code;
 import java.util.List;
 import java.util.Scanner;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.EvenNumber;
+import hexlet.code.games.GCD;
+import hexlet.code.games.PrimeNumber;
+import hexlet.code.games.Progression;
+
 public class App {
 
     public static void main(String[] args) {
@@ -35,23 +41,23 @@ public class App {
                     break;
                 }
                 case "Even" -> {
-                    Engine.runEvenGame();
+                    Engine.runGame(EvenNumber.getRules(), EvenNumber.getRounds());
                     break;
                 }
                 case "Calc" -> {
-                    Engine.runCalcGame();
+                    Engine.runGame(Calculator.getRules(), Calculator.getRounds());
                     break;
                 }
                 case "GCD" -> {
-                    Engine.runGcdGame();
+                    Engine.runGame(GCD.getRules(), GCD.getRounds());
                     break;
                 }
                 case "Progression" -> {
-                    Engine.runProgressionGame();
+                    Engine.runGame(Progression.getRules(), Progression.getRounds());
                     break;
                 }
                 case "Prime" -> {
-                    Engine.runPrimeGame();
+                    Engine.runGame(PrimeNumber.getRules(), PrimeNumber.getRounds());
                     break;
                 }
                 default -> {
