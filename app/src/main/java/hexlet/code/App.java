@@ -12,8 +12,8 @@ import hexlet.code.games.Progression;
 public class App {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        try {
+
+        try (Scanner scanner = new Scanner(System.in)) {
             List<String> gameList = List.of("Exit", "Greet", "Even", "Calc", "GCD", "Progression", "Prime");
 
             System.out.println("Please enter the game number and press Enter.");
@@ -38,27 +38,21 @@ public class App {
             switch (curGame) {
                 case "Greet" -> {
                     Engine.getName();
-                    break;
                 }
                 case "Even" -> {
-                    Engine.runGame(EvenNumber.getRules(), EvenNumber.getRounds());
-                    break;
+                    Engine.runGame(EvenNumber.RULES, EvenNumber.getRounds(Engine.GAME_ROUNDS));
                 }
                 case "Calc" -> {
-                    Engine.runGame(Calculator.getRules(), Calculator.getRounds());
-                    break;
+                    Engine.runGame(Calculator.RULES, Calculator.getRounds(Engine.GAME_ROUNDS));
                 }
                 case "GCD" -> {
-                    Engine.runGame(GCD.getRules(), GCD.getRounds());
-                    break;
+                    Engine.runGame(GCD.RULES, GCD.getRounds(Engine.GAME_ROUNDS));
                 }
                 case "Progression" -> {
-                    Engine.runGame(Progression.getRules(), Progression.getRounds());
-                    break;
+                    Engine.runGame(Progression.RULES, Progression.getRounds(Engine.GAME_ROUNDS));
                 }
                 case "Prime" -> {
-                    Engine.runGame(PrimeNumber.getRules(), PrimeNumber.getRounds());
-                    break;
+                    Engine.runGame(PrimeNumber.RULES, PrimeNumber.getRounds(Engine.GAME_ROUNDS));
                 }
                 default -> {
                     break;
@@ -66,8 +60,6 @@ public class App {
             }
         } catch (Exception e) {
             System.out.println("Bad input.");
-        } finally {
-            scanner.close();
         }
     }
 }

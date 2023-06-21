@@ -1,14 +1,12 @@
 package hexlet.code.games;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class GCD {
 
     private static final int BOUND = 100;
     private static final Random RAND_GENERATOR = new Random();
-    private static final Integer GAME_ROUNDS = 3;
+    public static final String RULES = "Find the greatest common divisor of given numbers.";
 
     private static int getGCD(int x, int y) {
         if (x == 0 || y == 0) {
@@ -26,20 +24,16 @@ public class GCD {
         }
     }
 
-    private static List<String> generateRound() {
+    private static String[] generateRound() {
         int a = RAND_GENERATOR.nextInt(BOUND);
         int b = RAND_GENERATOR.nextInt(BOUND);
-        return List.of(a + " " + b, String.valueOf(getGCD(a, b)));
+        return new String[]{a + " " + b, String.valueOf(getGCD(a, b))};
     }
 
-    public static String getRules() {
-        return "Find the greatest common divisor of given numbers.";
-    }
-
-    public static ArrayList<List<String>> getRounds() {
-        var rounds = new ArrayList<List<String>>();
-        for (int i = 0; i < GAME_ROUNDS; i++) {
-            rounds.add(generateRound());
+    public static String[][] getRounds(int roundsAmount) {
+        var rounds = new String[3][2];
+        for (int i = 0; i < roundsAmount; i++) {
+            rounds[i] = generateRound();
         }
         return rounds;
     }

@@ -1,13 +1,12 @@
 package hexlet.code;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Engine {
 
     private static String userName;
     private static final Scanner SCANNER = new Scanner(System.in);
+    public static final Integer GAME_ROUNDS = 3;
 
     private static void askQuestion(String gameQuestion) {
         System.out.println("Question: " + gameQuestion);
@@ -33,15 +32,15 @@ public class Engine {
         System.out.println("Hello, " + userName + "!");
     }
 
-    public static void runGame(String rules, ArrayList<List<String>> rounds) {
+    public static void runGame(String rules, String[][] rounds) {
         getName();
         System.out.println(rules);
         int counter = 0;
 
-        while (counter < rounds.size()) {
-            var curRound = rounds.get(counter);
-            askQuestion(curRound.get(0));
-            String rightAnswer = curRound.get(1);
+        while (counter < GAME_ROUNDS) {
+            var curRound = rounds[counter];
+            askQuestion(curRound[0]);
+            String rightAnswer = curRound[1];
             String userAnswer = SCANNER.next();
 
             if (userAnswer.equals(rightAnswer)) {
@@ -53,7 +52,7 @@ public class Engine {
             }
         }
 
-        if (counter >= rounds.size()) {
+        if (counter >= GAME_ROUNDS) {
             giveCongratulations();
         }
 
