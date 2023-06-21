@@ -25,8 +25,8 @@ public class GCD {
     }
 
     private static String[] generateRound() {
-        int a = RAND_GENERATOR.nextInt(BOUND);
-        int b = RAND_GENERATOR.nextInt(BOUND);
+        int a = RAND_GENERATOR.nextInt(BOUND) + 1;
+        int b = RAND_GENERATOR.nextInt(BOUND) + 1;
         return new String[]{a + " " + b, String.valueOf(getGCD(a, b))};
     }
 

@@ -17,7 +17,6 @@ public class Progression {
         int secretIndex = RAND_GENERATOR.nextInt(length);
         String[] progression = new String[length];
 
-
         for (int curIndex = 0; curIndex < length; curIndex++) {
             progression[curIndex] = String.valueOf(base + step * curIndex);
         }
