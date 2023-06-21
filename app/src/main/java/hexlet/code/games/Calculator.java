@@ -32,7 +32,7 @@ public class Calculator {
     }
 
     public static String[][] getRounds(int roundsAmount) {
-        var rounds = new String[3][2];
+        var rounds = new String[roundsAmount][2];
         for (int i = 0; i < roundsAmount; i++) {
             rounds[i] = generateRound();
         }
