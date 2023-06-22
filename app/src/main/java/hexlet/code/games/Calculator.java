@@ -1,16 +1,13 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class Calculator {
 
     private static final int BOUND = 10;
     private static final Character[] OPERATIONS = {'+', '-', '*'};
-    private static final Random RAND_GENERATOR = new Random();
     public static final String RULES = "What is the result of the expression?";
 
     private static String[] getCalculation(int a, int b) {
-        char randomSymbol = OPERATIONS[RAND_GENERATOR.nextInt(OPERATIONS.length)];
+        char randomSymbol = OPERATIONS[RandGenerator.getRandomInt(OPERATIONS.length)];
 
         switch (randomSymbol) {
             case '+' -> {
@@ -26,8 +23,8 @@ public class Calculator {
     }
 
     private static String[] generateRound() {
-        int a = RAND_GENERATOR.nextInt(BOUND);
-        int b = RAND_GENERATOR.nextInt(BOUND);
+        int a = RandGenerator.getRandomInt(BOUND);
+        int b = RandGenerator.getRandomInt(BOUND);
         return getCalculation(a, b);
     }
 

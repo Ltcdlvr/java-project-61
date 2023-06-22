@@ -1,11 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class PrimeNumber {
 
     private static final int BOUND = 1000;
-    private static final Random RAND_GENERATOR = new Random();
     public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static boolean isPrime(int number) {
@@ -22,7 +19,7 @@ public class PrimeNumber {
     }
 
     private static String[] generateRound() {
-        int n = RAND_GENERATOR.nextInt(BOUND);
+        int n = RandGenerator.getRandomInt(BOUND);
         String answer = isPrime(n) ? "yes" : "no";
         return new String[]{String.valueOf(n), answer};
     }

@@ -1,11 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class GCD {
 
     private static final int BOUND = 100;
-    private static final Random RAND_GENERATOR = new Random();
     public static final String RULES = "Find the greatest common divisor of given numbers.";
 
     private static int getGCD(int x, int y) {
@@ -25,8 +22,8 @@ public class GCD {
     }
 
     private static String[] generateRound() {
-        int a = RAND_GENERATOR.nextInt(BOUND) + 1;
-        int b = RAND_GENERATOR.nextInt(BOUND) + 1;
+        int a = RandGenerator.getRandomInt(BOUND) + 1;
+        int b = RandGenerator.getRandomInt(BOUND) + 1;
         return new String[]{a + " " + b, String.valueOf(getGCD(a, b))};
     }
 

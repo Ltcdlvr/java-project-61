@@ -37,7 +37,9 @@ public class App {
 
             switch (curGame) {
                 case "Greet" -> {
-                    Engine.getName();
+                    System.out.println("Welcome to the Brain Games!");
+                    System.out.print("May I have your name? ");
+                    System.out.println("Hello, " + scanner.next() + "!");
                 }
                 case "Even" -> {
                     Engine.runGame(EvenNumber.RULES, EvenNumber.getRounds(Engine.GAME_ROUNDS));

@@ -1,15 +1,12 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 public class EvenNumber {
 
     private static final int BOUND = 1000;
-    private static final Random RAND_GENERATOR = new Random();
     public static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     private static String[] generateRound() {
-        int n = RAND_GENERATOR.nextInt(BOUND);
+        int n = RandGenerator.getRandomInt(BOUND);
         String answer = "?";
 
         if (n % 2 == 0) {
