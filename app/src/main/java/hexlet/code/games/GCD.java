@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 public class GCD {
 
     private static final int BOUND = 100;
-    public static final String RULES = "Find the greatest common divisor of given numbers.";
+    private static final String RULES = "Find the greatest common divisor of given numbers.";
 
     private static int getGCD(int x, int y) {
         if (x == 0 || y == 0) {
@@ -27,11 +29,15 @@ public class GCD {
         return new String[]{a + " " + b, String.valueOf(getGCD(a, b))};
     }
 
-    public static String[][] getRounds(int roundsAmount) {
+    private static String[][] getRounds(int roundsAmount) {
         var rounds = new String[roundsAmount][2];
         for (int i = 0; i < roundsAmount; i++) {
             rounds[i] = generateRound();
         }
         return rounds;
+    }
+
+    public static void runGame() {
+        Engine.runGame(GCD.RULES, GCD.getRounds(Engine.GAME_ROUNDS));
     }
 }

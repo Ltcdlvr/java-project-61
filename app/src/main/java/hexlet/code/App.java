@@ -42,19 +42,19 @@ public class App {
                     System.out.println("Hello, " + scanner.next() + "!");
                 }
                 case "Even" -> {
-                    Engine.runGame(EvenNumber.RULES, EvenNumber.getRounds(Engine.GAME_ROUNDS));
+                    EvenNumber.runGame();
                 }
                 case "Calc" -> {
-                    Engine.runGame(Calculator.RULES, Calculator.getRounds(Engine.GAME_ROUNDS));
+                    Calculator.runGame();
                 }
                 case "GCD" -> {
-                    Engine.runGame(GCD.RULES, GCD.getRounds(Engine.GAME_ROUNDS));
+                    GCD.runGame();
                 }
                 case "Progression" -> {
-                    Engine.runGame(Progression.RULES, Progression.getRounds(Engine.GAME_ROUNDS));
+                    Progression.runGame();
                 }
                 case "Prime" -> {
-                    Engine.runGame(PrimeNumber.RULES, PrimeNumber.getRounds(Engine.GAME_ROUNDS));
+                    PrimeNumber.runGame();
                 }
                 default -> {
                     break;

@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 public class PrimeNumber {
 
     private static final int BOUND = 1000;
-    public static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     private static boolean isPrime(int number) {
         int absNumber = Math.abs(number);
@@ -24,11 +26,15 @@ public class PrimeNumber {
         return new String[]{String.valueOf(n), answer};
     }
 
-    public static String[][] getRounds(int roundsAmount) {
+    private static String[][] getRounds(int roundsAmount) {
         var rounds = new String[roundsAmount][2];
         for (int i = 0; i < roundsAmount; i++) {
             rounds[i] = generateRound();
         }
         return rounds;
+    }
+
+    public static void runGame() {
+        Engine.runGame(PrimeNumber.RULES, PrimeNumber.getRounds(Engine.GAME_ROUNDS));
     }
 }
